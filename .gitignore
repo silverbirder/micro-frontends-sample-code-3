@@ -2,6 +2,8 @@
 /lib/
 /test/
 /docs/
+/build/
+/dist/
 
 # top level source
 my-element.js
