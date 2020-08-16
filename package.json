@@ -37,7 +37,6 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "@readymade/core": "^1.1.2",
-    "@skatejs/ssr": "^0.19.11",
     "@vaadin/router": "^1.7.2",
     "lit-element": "^2.3.1"
   },
