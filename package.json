@@ -6,8 +6,7 @@
   "module": "my-element.js",
   "type": "module",
   "scripts": {
-    "build:dev": "webpack --mode development",
-    "build:prod": "webpack --mode production",
+    "esbuild": "node esbuild.js",
     "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
     "lint:eslint": "eslint 'src/**/*.ts'",
     "lint:lit-analyzer": "lit-analyzer",
@@ -40,6 +39,7 @@
     "chai": "^4.2.0",
     "deepmerge": "^4.2.2",
     "es-dev-server": "^1.46.1",
+    "esbuild": "^0.6.25",
     "eslint": "^6.8.0",
     "karma": "^4.4.1",
     "karma-chai": "^0.1.0",
@@ -47,8 +47,6 @@
     "mocha": "^7.1.1",
     "prettier": "^2.0.4",
     "ts-loader": "^8.0.2",
-    "typescript": "^3.8.3",
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "typescript": "^3.8.3"
   }
 }
