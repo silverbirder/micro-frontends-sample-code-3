@@ -1,13 +1,3 @@
 /node_modules/
-/lib/
-/test/
-/docs/
 /build/
 /dist/
-
-# top level source
-my-element.js
-my-element.js.map
-my-element.d.ts
-my-element.d.ts.map
-custom-elements.json

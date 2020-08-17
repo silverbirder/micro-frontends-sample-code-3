@@ -6,7 +6,8 @@
   "module": "my-element.js",
   "type": "module",
   "scripts": {
-    "esbuild": "node esbuild.js",
+    "ts": "tsc",
+    "build": "node esbuild.js",
     "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
     "lint:eslint": "eslint 'src/**/*.ts'",
     "lint:lit-analyzer": "lit-analyzer",
