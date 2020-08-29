@@ -19,4 +19,8 @@
     <product-item name="attributes product"></product-item>
     <search-box name="attributes search"></search-box>
   </body>
+<script>
+  const searchBox = document.querySelector('search-box');
+  searchBox.addEventListener('search-box-button-click', (e) => {console.log(e)});
+</script>
 </html>
