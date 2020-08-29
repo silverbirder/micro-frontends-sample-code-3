@@ -26,20 +26,35 @@ export class SearchBox extends LitElement {
 
     @eventOptions({capture: true})
     private _onClick() {
+        this.dispatchKeywordEvent(this.keyword);
+        this.dispatchHistoryEvent(this.keyword);
+    }
+
+    dispatchKeywordEvent (keyword: string) {
         const search: SearchBoxEvent = {
             detail: {
-                keyword: this.keyword,
-                callback: (async (keyword: String) => {
+                keyword: keyword,
+                callback: (async (keyword: string) => {
                     const productItemComponent = new ProductItem();
                     productItemComponent.name = keyword;
+                    this.productItemComponents = [];
                     this.productItemComponents.push(productItemComponent);
                     const map = new Map();
-                    // map.set('productItemComponents', this.productItemComponents);
                     this.update(map)
                 }).bind(this)
             }
         };
         let event: CustomEvent = new CustomEvent('search-box-button-click', search);
+        this.dispatchEvent(event);
+    }
+
+    dispatchHistoryEvent (keyword: string) {
+        const search: SearchBoxEvent = {
+            detail: {
+                keyword: keyword,
+            }
+        };
+        let event: CustomEvent = new CustomEvent('search-box-keyword-history', search);
         this.dispatchEvent(event);
     }
 
@@ -52,7 +67,7 @@ export class SearchBox extends LitElement {
 export interface SearchBoxEvent extends CustomEventInit {
     detail: {
         keyword: String,
-        callback: Function
+        callback?: Function
     }
 }
 
