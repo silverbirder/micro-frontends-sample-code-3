@@ -26,11 +26,12 @@ export class SearchBox extends LitElement {
 
     @eventOptions({capture: true})
     private _onClick() {
-        let event = new CustomEvent('search-box-button-click', {
+        const search: SearchBoxEvent = {
             detail: {
                 keyword: this.keyword
             }
-        });
+        };
+        let event: CustomEvent = new CustomEvent('search-box-button-click', search);
         this.dispatchEvent(event);
     }
 
@@ -40,6 +41,12 @@ export class SearchBox extends LitElement {
         const productItemComponent = new ProductItem();
         productItemComponent.name = this.keyword;
         this.productItemComponents.push(productItemComponent);
+    }
+}
+
+export interface SearchBoxEvent extends CustomEventInit {
+    detail: {
+        keyword: String
     }
 }
 
