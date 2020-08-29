@@ -7,6 +7,7 @@ exports.ProductItem = ProductItem;
 exports.SearchBox = SearchBox;
 
 const searchBox = document.querySelector('search-box') as SearchBox;
-searchBox?.addEventListener('search-box-button-click', (e: Event) => {
-    console.log((e as CustomEvent as SearchBoxEvent).detail.keyword);
+searchBox?.addEventListener('search-box-button-click', async (e: Event) => {
+    const {keyword, callback} = (e as CustomEvent as SearchBoxEvent).detail;
+    await callback(keyword);
 });
