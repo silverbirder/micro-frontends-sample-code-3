@@ -30,7 +30,7 @@ export class SearchBox extends LitElement {
         this.dispatchHistoryEvent(this.keyword);
     }
 
-    dispatchKeywordEvent (keyword: string) {
+    dispatchKeywordEvent(keyword: string) {
         const search: SearchBoxEvent = {
             detail: {
                 keyword: keyword,
@@ -48,7 +48,7 @@ export class SearchBox extends LitElement {
         this.dispatchEvent(event);
     }
 
-    dispatchHistoryEvent (keyword: string) {
+    dispatchHistoryEvent(keyword: string) {
         const search: SearchBoxEvent = {
             detail: {
                 keyword: keyword,
@@ -67,7 +67,7 @@ export class SearchBox extends LitElement {
 export interface SearchBoxEvent extends CustomEventInit {
     detail: {
         keyword: String,
-        callback?: Function
+        callback?(keyword: String): void
     }
 }
 
