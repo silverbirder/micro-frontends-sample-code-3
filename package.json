@@ -2,9 +2,9 @@
   "name": "lit-element-starter-ts",
   "version": "0.0.0",
   "description": "A simple web component",
-  "main": "my-element.js",
-  "module": "my-element.js",
   "type": "module",
+  "main": "build/client.js",
+  "module": "esm.js",
   "scripts": {
     "ts": "tsc",
     "build": "node esbuild.js",
@@ -14,6 +14,7 @@
     "format": "prettier src/* --write",
     "serve": "es-dev-server --node-resolve --watch",
     "test": "karma start karma.conf.cjs",
+    "test2": "npm run ts && web-test-runner build/test/**/*_test.js --node-resolve --esbuild-target auto --playwright --browsers chromium",
     "test:watch": "karma start karma.conf.cjs --auto-watch=true --single-run=false",
     "test:update-snapshots": "karma start karma.conf.cjs --update-snapshots",
     "test:prune-snapshots": "karma start karma.conf.cjs --prune-snapshots"
@@ -31,17 +32,23 @@
     "lit-element": "^2.3.1"
   },
   "devDependencies": {
+    "@esm-bundle/chai": "^4.1.5",
     "@open-wc/testing": "^2.5.10",
     "@open-wc/testing-karma": "^3.3.11",
     "@types/chai": "^4.2.11",
     "@types/mocha": "^7.0.2",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",
+    "@web/dev-server-import-maps": "0.0.3",
+    "@web/test-runner": "^0.9.7",
+    "@web/test-runner-playwright": "^0.6.4",
+    "apollo-link-http": "^1.5.17",
     "chai": "^4.2.0",
     "deepmerge": "^4.2.2",
     "es-dev-server": "^1.46.1",
     "esbuild": "^0.6.25",
     "eslint": "^6.8.0",
+    "graphql": "^15.4.0",
     "karma": "^4.4.1",
     "karma-chai": "^0.1.0",
     "karma-mocha": "^1.3.0",
@@ -49,6 +56,7 @@
     "mocha": "^7.1.1",
     "prettier": "^2.0.4",
     "ts-loader": "^8.0.2",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "zen-observable": "^0.8.15"
   }
 }

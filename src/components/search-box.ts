@@ -1,5 +1,12 @@
 import {LitElement, html, customElement, css, property, eventOptions} from 'lit-element';
 import {ProductItem} from './product-item'
+import {HttpLink} from "apollo-link-http";
+
+const http = new HttpLink({
+    uri: `${process.env.TEAM_SEARCH_API_URL}`
+});
+
+console.log(http);
 
 @customElement('search-box')
 export class SearchBox extends LitElement {

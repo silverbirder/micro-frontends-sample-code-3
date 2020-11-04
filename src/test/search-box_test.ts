@@ -3,13 +3,13 @@ import {fixture, html} from '@open-wc/testing';
 
 const assert = chai.assert;
 
-suite('search-box', () => {
-  test('is defined', () => {
+describe('search-box', () => {
+  it('is defined', () => {
     const el = document.createElement('search-box');
     assert.instanceOf(el, SearchBox);
   });
 
-  test('renders with default values', async () => {
+  it('renders with default values', async () => {
     const el = await fixture(html`<search-box></search-box>`);
     assert.shadowDom.equal(
       el,
@@ -21,7 +21,7 @@ suite('search-box', () => {
     );
   });
 
-  test('renders with a set name', async () => {
+  it('renders with a set name', async () => {
     const el = await fixture(html`<search-box name="Test"></search-box>`);
     assert.shadowDom.equal(
       el,
@@ -33,7 +33,7 @@ suite('search-box', () => {
     );
   });
 
-  test('handles a click', async () => {
+  it('handles a click', async () => {
     const el = (await fixture(html`<search-box></search-box>`)) as SearchBox;
     const button = el.shadowRoot!.querySelector('button')!;
     button.click();
